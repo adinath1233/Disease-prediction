@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Disease prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="symptoms">Enter Symptoms:</label>
+        <input type="text" id="symptoms" name="symptoms" placeholder="e.g., symptom1, symptom2, symptom3">
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+    {% if description_text %}
+        <p>{{ description_text }}</p>
+    {% endif %}
+</body>
+</html>
